@@ -1,0 +1,15 @@
+---
+- name: Actualizar aplicación Go
+  hosts: group_servers
+  become: yes
+  tasks:
+    - name: Clonar o actualizar el repositorio Git
+      git:
+        repo: 'https://github.com/josephalmonte12/Ansible-AWX.git'
+        dest: "~/Ansible-AWX/Go App"
+        update: yes
+
+    - name: Levantar la aplicación con Docker Compose
+      shell: docker-compose up -d
+      args:
+        chdir: "~/Ansible-AWX/Go App"
