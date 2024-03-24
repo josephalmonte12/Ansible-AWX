@@ -1,6 +1,6 @@
 ---
 - name: Actualizar aplicación Go
-  hosts: group_servers
+  hosts: all
   become: yes
   tasks:
     - name: Clonar o actualizar el repositorio Git
